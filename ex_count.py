@@ -1,17 +1,14 @@
-def reorder_points(points):
-    # 首先按纵坐标排序
-    sorted_points = sorted(points, key=lambda p: p[1])
-    
-    reordered_points = []
-    while sorted_points:
-        # 从开始和结尾取点，并将其添加到新列表中
-        if sorted_points:
-            reordered_points.append(sorted_points.pop(0))
-        if sorted_points:
-            reordered_points.append(sorted_points.pop())
-    
-    return reordered_points
+import matplotlib.pyplot as plt
 
-# 示例数据：[(x1, y1), (x2, y2), ...]
-points = [(1, 5), (2, 3), (3, 8), (4, 2), (5, 7)]
-print(reorder_points(points))
+# 示例数据
+y = [5, 22, 15, 40, 37, 23, 45, 12, 5, 30, 42, 55, 20, 15, 52]
+
+# 使用plt.hist()创建直方图
+# bins参数定义了你想要的"箱子"或范围的数量。
+# 例如，如果你想要每10个单位一个范围，可以使用range和步进来定义这些箱子。
+plt.hist(y, bins=range(0, 61, 10), edgecolor="k", align='left')
+
+plt.xlabel('Range')
+plt.ylabel('Frequency')
+plt.title('Histogram')
+plt.show()
